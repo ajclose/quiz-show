@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+User.create!(username: 'ajclose', password: 'password', admin: true)
+
+Quiz.create!(title: 'new quiz', description: 'cool quiz to take', published: true)
+Quiz.create!(title: 'unpublished quiz', description: 'unfinished quiz', published: false)
