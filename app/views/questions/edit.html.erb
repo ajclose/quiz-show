@@ -3,3 +3,16 @@
 <h4>Edit Question</h4>
 
 <%= render partial: 'form' %>
+
+<h4>Answers:</h4>
+
+<%= link_to "Add Answer", new_question_answer_path(@question) %>
+
+<% @question.answers.each do |answer| %>
+
+<p><%= answer.body %></p>
+<p>Correct? <%= answer.correct %></p>
+<%= link_to "Edit", edit_question_answer_path(@question, answer) %>
+<%= link_to "Delete", question_answer_path(@question, answer), method: :delete, data: {confirm: "Are you sure you want to delete this answer?"} %>
+
+<% end %>

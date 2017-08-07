@@ -1,0 +1,26 @@
+<% if @answer.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@answer.errors.count, "error") %> prohibited this answer from being saved:</h2>
+
+    <ul>
+    <% @answer.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for([@question, @answer]) do |f| %>
+
+<%= f.label :body %>
+<%= f.text_area :body %>
+
+<p>Is this the correct answer?</p>
+<%= f.radio_button :correct, "true" %>
+<%= f.label :correct, "true" %>
+<%= f.radio_button :correct, "false" %>
+<%= f.label :correct, "false" %>
+
+<%= f.submit %>
+
+<% end %>

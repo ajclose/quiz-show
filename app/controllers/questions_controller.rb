@@ -46,4 +46,5 @@ class QuestionsController < ApplicationController
     @question.destroy
     redirect_to quiz_path(@quiz)
   end
+
 end
