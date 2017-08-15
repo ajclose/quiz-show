@@ -7,3 +7,13 @@
 <%= link_to 'Delete', quiz_path(quiz), method: :delete, data: {confirm: "Are you sure you want to delete this quiz?"} %>
 
 <% end %>
+
+<aside class="">
+  <h4>Completed Quizzes</h4>
+  <% @completed_quizzes.each do |quiz| %>
+  <div class="">
+    <%= quiz.quiz.title %>
+    <%= quiz.score %>/<%= quiz.quiz.questions.length %>
+  </div>
+    <% end %>
+</aside>
