@@ -7,15 +7,14 @@ class QuizzesController < ApplicationController
 
   def show
     if session[:quiz] == nil
-      session[:quiz] = Quiz.find(params[:id])
-      questions = session[:quiz].questions.map do |question|
+      session[:quiz] = params[:id]
+      questions = Question.where(quiz_id: session[:quiz]).map do |question|
         question.id
       end
       session[:questions] = questions.shuffle
       session[:correct] = 0
     end
 
-    puts session[:questions].inspect
     @quiz = Quiz.find(params[:id])
     @question_id = session[:questions].pop
     @question = Question.find(@question_id)
@@ -29,7 +28,7 @@ class QuizzesController < ApplicationController
       session[:correct] += 1
     end
     if session[:questions].length == 0
-      redirect_to root_path
+      redirect_to new_results_path
     else
       redirect_to quiz_path(@quiz)
     end

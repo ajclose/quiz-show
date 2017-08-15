@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'completed/quizzes'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'quizzes#index'
@@ -18,5 +20,10 @@ Rails.application.routes.draw do
   resources :questions do
     resources :answers
   end
+
+  get 'results' => 'completed_quizzes#new', as: :new_results
+  post 'results' => 'completed_quizzes#create'
+  get 'results/:id' => 'completed_quizzes#show', as: :score
+
 
 end
