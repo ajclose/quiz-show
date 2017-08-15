@@ -2,7 +2,7 @@ class QuizzesController < ApplicationController
 
   def index
     session[:quiz] = nil
-    @quizzes = Quiz.all
+    @quizzes = Quiz.published
     @completed_quizzes = CompletedQuiz.where(user_id: session[:user_id])
   end
 
