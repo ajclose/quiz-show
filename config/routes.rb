@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new', as: :login
   post 'login' => 'sessions#create'
 
+  post 'quizzes/:id/check' => 'quizzes#check'
+
   resources :quizzes do
     resources :questions
   end
@@ -16,5 +18,5 @@ Rails.application.routes.draw do
   resources :questions do
     resources :answers
   end
-  
+
 end
