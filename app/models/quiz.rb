@@ -5,4 +5,5 @@ class Quiz < ApplicationRecord
   validates :description, presence: true
 
   scope :published, -> { where(published: true)}
+  scope :unpublished, -> { where(published: false)}
 end

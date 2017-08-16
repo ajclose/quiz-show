@@ -8,15 +8,10 @@ class QuizzesController < ApplicationController
 
   def index
     session[:quiz] = nil
-    if @current_user.admin == true
-      @quizzes = Quiz.all.select do |quiz|
+      @published_quizzes = Quiz.published.select do |quiz|
         quiz.completed_quizzes.where(user_id: @current_user.id).exists? == false
       end
-    else
-      @quizzes = Quiz.published.select do |quiz|
-        quiz.completed_quizzes.where(user_id: @current_user.id).exists? == false
-      end
-    end
+      @unpublished_quizzes = Quiz.unpublished
     @completed_quizzes = @current_user.completed_quizzes
   end
 
