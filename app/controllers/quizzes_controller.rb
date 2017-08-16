@@ -1,9 +1,21 @@
 class QuizzesController < ApplicationController
 
+  before_action do
+    if @current_user.blank?
+      redirect_to login_path
+    end
+  end
+
   def index
     session[:quiz] = nil
-    @quizzes = Quiz.published.select do |quiz|
-      quiz.completed_quizzes.where(user_id: @current_user.id).exists? == false
+    if @current_user.admin == true
+      @quizzes = Quiz.all.select do |quiz|
+        quiz.completed_quizzes.where(user_id: @current_user.id).exists? == false
+      end
+    else
+      @quizzes = Quiz.published.select do |quiz|
+        quiz.completed_quizzes.where(user_id: @current_user.id).exists? == false
+      end
     end
     @completed_quizzes = @current_user.completed_quizzes
   end
@@ -60,12 +72,14 @@ class QuizzesController < ApplicationController
   end
 
   def update
+    puts params
     @quiz = Quiz.find(params[:id])
     if @quiz.published == true
       redirect_to root_path, notice: "Quiz can no longer be edited"
     else
       @quiz.title = params[:quiz][:title]
       @quiz.description = params[:quiz][:description]
+      @quiz.published = params[:quiz][:published]
       if @quiz.save
         redirect_to root_path
       else

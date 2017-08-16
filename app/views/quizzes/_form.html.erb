@@ -6,6 +6,12 @@
 <%= f.label :description %>
 <%= f.text_area :description %>
 
+<p>Publish?</p>
+<%= f.radio_button :published, "true" %>
+<%= f.label :published, "true" %>
+<%= f.radio_button :published, "false" %>
+<%= f.label :published, "false" %>
+
 <%= f.submit %>
 
 <% end %>

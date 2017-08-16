@@ -21,7 +21,7 @@ class QuestionsController < ApplicationController
     @question.body = params[:question][:body]
     @question.quiz_id = params[:quiz_id]
     if @question.save
-      redirect_to quiz_path(@quiz)
+      redirect_to edit_quiz_path(@quiz)
     else
       render :new
     end
