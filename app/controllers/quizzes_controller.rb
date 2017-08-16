@@ -13,6 +13,10 @@ class QuizzesController < ApplicationController
       end
       @unpublished_quizzes = Quiz.unpublished
     @completed_quizzes = @current_user.completed_quizzes
+    @scores = @completed_quizzes.map do |quiz|
+      quiz.score
+    end
+    @total_score = @scores.sum
   end
 
   def show

@@ -28,6 +28,7 @@
 
 <aside class="">
   <h4>Completed Quizzes</h4>
+  <p>Total Score: <%= @total_score %></p>
   <% @completed_quizzes.each do |quiz| %>
   <div class="">
     <%= quiz.quiz.title %>
