@@ -1,3 +1,5 @@
-<h3>You got <%= @completed_quiz.score %> out of <%= @completed_quiz.quiz.questions.length %> right!</h3>
+<div class="results">
+  <h3>You got <%= @completed_quiz.score %> out of <%= @completed_quiz.quiz.questions.length %> right!</h3>
 
-<%= link_to "Take another Quiz", root_path %>
+  <%= link_to "Take another Quiz", root_path %>
+</div>

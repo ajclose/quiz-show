@@ -1,8 +1,12 @@
 <%= form_for([@quiz, @question]) do |f| %>
 
-<%= f.label :body %>
-<%= f.text_area :body %>
+<div class="input">
+  <%= f.label :body %>
+  <%= f.text_area :body %>
+</div>
 
-<%= f.submit %>
+<div class="input">
+  <%= f.submit %>
+</div>
 
 <% end %>

@@ -12,15 +12,21 @@
 
 <%= form_for([@question, @answer]) do |f| %>
 
-<%= f.label :body %>
-<%= f.text_area :body %>
+<div class="input">
+  <%= f.label :body %>
+  <%= f.text_area :body %>
+</div>
 
-<p>Is this the correct answer?</p>
-<%= f.radio_button :correct, "true" %>
-<%= f.label :correct, "true" %>
-<%= f.radio_button :correct, "false" %>
-<%= f.label :correct, "false" %>
+<div class="input">
+  <p>Is this the correct answer?</p>
+  <%= f.radio_button :correct, "true" %>
+  <%= f.label :correct, "true" %>
+  <%= f.radio_button :correct, "false" %>
+  <%= f.label :correct, "false" %>
+</div>
 
-<%= f.submit %>
+<div class="input">
+  <%= f.submit %>
+</div>
 
 <% end %>

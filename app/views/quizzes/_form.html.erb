@@ -1,17 +1,24 @@
 <%= form_for @quiz do |f| %>
+<div class="input">
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+</div>
 
-<%= f.label :title %>
-<%= f.text_field :title %>
+<div class="input">
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+</div>
 
-<%= f.label :description %>
-<%= f.text_area :description %>
+<div class="input">
+  <p>Publish?</p>
+  <%= f.radio_button :published, "true" %>
+  <%= f.label :published, "true" %>
+  <%= f.radio_button :published, "false" %>
+  <%= f.label :published, "false" %>
+</div>
 
-<p>Publish?</p>
-<%= f.radio_button :published, "true" %>
-<%= f.label :published, "true" %>
-<%= f.radio_button :published, "false" %>
-<%= f.label :published, "false" %>
-
-<%= f.submit %>
+<div class="input">
+  <%= f.submit %>
+</div>
 
 <% end %>

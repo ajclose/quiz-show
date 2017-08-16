@@ -1,8 +1,9 @@
-<h3><%= @quiz.title %></h3>
-<h4><%= @quiz.description %></h4>
+<div class="quiz">
+  <h3><%= @quiz.title %></h3>
+  <h4><%= @quiz.description %></h4>
 
-<p><%= @question.body %></p>
-<%= form_tag({controller: "quizzes", action: "check"}, method: "post") do %>
+  <p><%= @question.body %></p>
+  <%= form_tag({controller: "quizzes", action: "check"}, method: "post") do %>
   <% @answers.each do |answer| %>
   <div class="">
     <%= radio_button_tag(:answer, answer.id) %>
@@ -11,3 +12,4 @@
   <% end %>
   <%= submit_tag "Submit Answer" %>
   <% end %>
+</div>

@@ -1,5 +1,7 @@
-<h3><%= link_to @quiz.title, quiz_path(@quiz) %></h3>
+<div class="question">
+  <h3><%= link_to @quiz.title, quiz_path(@quiz) %></h3>
 
-<h3>Add Question</h3>
+  <h3>Add Question</h3>
 
-<%= render partial: 'form' %>
+  <%= render partial: 'form' %>
+</div>
