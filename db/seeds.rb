@@ -8,7 +8,7 @@
 
 User.create!(username: 'admin', password: 'password', admin: true)
 
-seinfeld = Quiz.create!(title: 'Seinfeld Trivia', description: 'How well do you know Seinfeld?', published: false)
+seinfeld = Quiz.create!(title: 'Seinfeld Trivia', description: 'How well do you know Seinfeld?', published: true)
 Quiz.create!(title: 'unpublished quiz', description: 'unfinished quiz', published: false)
 
 question_one = Question.create!(quiz_id: seinfeld.id, body: "What is Kramer's first name?")

@@ -2,8 +2,10 @@ class QuizzesController < ApplicationController
 
   def index
     session[:quiz] = nil
-    @quizzes = Quiz.published
-    @completed_quizzes = CompletedQuiz.where(user_id: session[:user_id])
+    @quizzes = Quiz.published.select do |quiz|
+      quiz.completed_quizzes.where(user_id: @current_user.id).exists? == false
+    end
+    @completed_quizzes = @current_user.completed_quizzes
   end
 
   def show
@@ -33,7 +35,6 @@ class QuizzesController < ApplicationController
     else
       redirect_to quiz_path(@quiz)
     end
-
   end
 
   def new
