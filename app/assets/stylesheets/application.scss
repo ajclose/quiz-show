@@ -9,10 +9,30 @@ body {
 header {
   width: 100%;
   text-align: center;
+  margin-bottom: 20px;
+}
+
+nav {
+  display: flex;
+  justify-content: center
+}
+
+nav p {
+  margin: 5px;
 }
 
 .container {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+
+a {
+  color: #ecf0f1;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #95a5a6;
+  text-decoration: none;
 }

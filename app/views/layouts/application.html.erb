@@ -13,14 +13,14 @@
       <h1><%= link_to 'Quiz', root_path %></h1>
       <nav>
         <% if @current_user == nil %>
-          <%= link_to 'Login', login_path %>
-          <%= link_to 'Sign Up', signup_path %>
+          <p><%= link_to 'Login', login_path %></p>
+          <p><%= link_to 'Sign Up', signup_path %></p>
         <% else %>
           <% if @current_user.admin == true %>
-            <%= link_to 'Admin', rails_admin_path %>
-            <%= link_to 'Create Quiz', new_quiz_path %>
+            <p><%= link_to 'Admin', rails_admin_path %></p>
+            <p><%= link_to 'Create Quiz', new_quiz_path %></p>
           <% end %>
-            <%= link_to 'Sign Out', logout_path, method: :delete %>
+            <p><%= link_to 'Sign Out', logout_path, method: :delete %></p>
         <% end %>
       </nav>
     </header>
