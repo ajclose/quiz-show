@@ -3,7 +3,9 @@
 @import 'users';
 @import 'quizzes';
 
-
+body {
+  background-color: #e74c3c;
+}
 header {
   width: 100%;
   text-align: center;
